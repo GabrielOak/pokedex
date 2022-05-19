@@ -22,12 +22,21 @@ type PokemonList = {
   url: string;
 };
 
+export type PokemonType = {
+  id: string;
+  name: string;
+  types: Array<string>;
+  image: string;
+  height: number;
+  weight: number;
+};
+
 export const PokemonContext = createContext<PokemonContextType>(
   {} as PokemonContextType,
 );
 
 export const PokemonProvider = ({children}: PokemonontextProps) => {
-  const [pokemons, setPokemons] = useState<Array<any>>([]);
+  const [pokemons, setPokemons] = useState<Array<PokemonType>>([]);
   const [loading, setLoading] = useState(false);
   const [offset] = useState(0);
 
@@ -35,7 +44,15 @@ export const PokemonProvider = ({children}: PokemonontextProps) => {
 
   const getPokemonDetail = useCallback(async (pokemonId: number) => {
     const {data} = await api.get(`pokemon/${pokemonId}`);
-    return data;
+    const pokemon: PokemonType = {
+      id: data.id,
+      name: data.name,
+      types: data.types?.map((type: any) => type.type.name),
+      image: data.sprites?.other['official-artwork']?.front_default,
+      height: data.height,
+      weight: data.weight,
+    };
+    return pokemon;
   }, []);
 
   const getPokemonList = useCallback(async () => {
@@ -46,7 +63,7 @@ export const PokemonProvider = ({children}: PokemonontextProps) => {
   const getPokemons = useCallback(async () => {
     setLoading(true);
     const pokemonList = await getPokemonList();
-    const pokemonsResults = await Promise.all(
+    const pokemonsResults: Array<PokemonType> = await Promise.all(
       pokemonList?.data?.results?.map((pokemon: PokemonList) => {
         const pokemonId = parseInt(pokemon?.url?.split('/')[6], 10);
         const pokemonResult = getPokemonDetail(pokemonId);
