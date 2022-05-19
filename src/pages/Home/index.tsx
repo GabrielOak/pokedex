@@ -1,5 +1,6 @@
 import React from 'react';
 import {FlatList, Text} from 'react-native';
+import Header from '../../components/Header';
 import PokemonCard from '../../components/PokemonCard';
 import {usePokemon} from '../../contexts/PokemonContext';
 
@@ -18,8 +19,9 @@ const Home = () => {
             <FlatList
               data={pokemons}
               numColumns={2}
-              keyExtractor={item => item.id}
+              keyExtractor={item => `${item.id}`}
               renderItem={({item}) => <PokemonCard pokemon={item} />}
+              ListHeaderComponent={() => <Header />}
             />
           </>
         )

@@ -15,10 +15,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({pokemon}) => {
       <S.InfoContainer>
         <S.TypesContainer>
           {pokemon.types.map(type => (
-            <S.TypeIndicator>
-              <S.TypeIndicatorText key={`${pokemon.name}-${type}`}>
-                {type}
-              </S.TypeIndicatorText>
+            <S.TypeIndicator key={`${pokemon.id}-${type}`}>
+              <S.TypeIndicatorText>{type}</S.TypeIndicatorText>
             </S.TypeIndicator>
           ))}
         </S.TypesContainer>

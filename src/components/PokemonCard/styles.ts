@@ -23,7 +23,7 @@ export const Title = styled.Text`
 
 export const PokemonID = styled.Text`
   color: gray;
-  font-size: 18px;
+  font-size: 16px;
   align-self: flex-end;
 `;
 
