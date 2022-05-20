@@ -1,5 +1,7 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {PokemonType} from '../../contexts/PokemonContext';
+import TypeIndicator from '../TypeIndicator';
 
 import * as S from './styles';
 
@@ -8,16 +10,18 @@ interface PokemonCardProps {
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({pokemon}) => {
+  const navigation = useNavigation();
+
   return (
-    <S.Card type={pokemon.types[0]}>
+    <S.Card
+      onPress={() => navigation.navigate('PokemonDetail', {pokemon})}
+      type={pokemon.types[0]}>
       <S.PokemonID>{`#0${pokemon.id}`}</S.PokemonID>
       <S.Title>{pokemon.name}</S.Title>
       <S.InfoContainer>
         <S.TypesContainer>
           {pokemon.types.map(type => (
-            <S.TypeIndicator key={`${pokemon.id}-${type}`}>
-              <S.TypeIndicatorText>{type}</S.TypeIndicatorText>
-            </S.TypeIndicator>
+            <TypeIndicator type={type} key={`${pokemon.id}-${type}`} />
           ))}
         </S.TypesContainer>
         <S.Image

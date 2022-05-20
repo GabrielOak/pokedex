@@ -5,7 +5,7 @@ interface CardProps {
   type: string;
 }
 
-export const Card = styled.View<CardProps>`
+export const Card = styled.TouchableOpacity<CardProps>`
   flex: 0.5;
   background-color: ${({type}) => colorType[type] || 'lightblue'};
   border-radius: 20px;
@@ -37,25 +37,6 @@ export const TypesContainer = styled.View`
   flex: 1;
   flex-direction: column;
   align-items: center;
-`;
-
-export const TypeIndicator = styled.View`
-  background-color: rgba(255, 255, 255, 0.2);
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 13px;
-  padding-right: 13px;
-  border-radius: 50px;
-  margin-top: 8px;
-  min-width: 70px;
-  align-items: center;
-`;
-
-export const TypeIndicatorText = styled.Text`
-  font-size: 12px;
-  color: white;
-  font-weight: 600;
-  text-transform: capitalize;
 `;
 
 export const Image = styled.Image`
