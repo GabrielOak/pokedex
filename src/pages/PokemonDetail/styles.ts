@@ -4,9 +4,9 @@ interface WrapperProps {
   color: string;
 }
 
-export const Wrapper = styled.ScrollView<WrapperProps>`
-  flex: 1;
+export const Wrapper = styled.View<WrapperProps>`
   background-color: ${({color}) => (color ? color : 'lighblue')};
+  flex: 1;
 `;
 
 export const Title = styled.Text`
@@ -47,9 +47,10 @@ export const PokemonImage = styled.Image`
 `;
 
 export const InfoContainer = styled.View`
-  height: 100%;
+  flex: 1;
   background-color: white;
-  border-radius: 45px;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
   padding: 24px;
   padding-top: 35px;
   margin-top: -35px;

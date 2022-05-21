@@ -35,9 +35,6 @@ const PokemonDetail: React.FC<PokemonDetailProp> = ({route}) => {
         <S.PokemonImage source={{uri: pokemon.image}} />
       </S.ImageContainer>
       <S.InfoContainer>
-        {/* <S.InfoTitle color={color}>Descrição</S.InfoTitle>
-        <S.DescriptionText>
-        </S.DescriptionText> */}
         <S.SizeContainer>
           <Balance fill="black" width={25} height={25} />
           <S.SizeItemContainer>
