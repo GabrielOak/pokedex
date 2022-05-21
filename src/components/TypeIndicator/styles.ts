@@ -10,6 +10,7 @@ export const TypeIndicator = styled.View`
   margin-top: 8px;
   min-width: 70px;
   align-items: center;
+  margin-right: 5px;
 `;
 
 export const TypeIndicatorText = styled.Text`

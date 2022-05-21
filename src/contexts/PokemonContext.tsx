@@ -29,6 +29,12 @@ export type PokemonType = {
   image: string;
   height: number;
   weight: number;
+  hp: number;
+  attack: number;
+  defense: number;
+  specialAttack: number;
+  specialDefence: number;
+  speed: number;
 };
 
 export const PokemonContext = createContext<PokemonContextType>(
@@ -49,8 +55,14 @@ export const PokemonProvider = ({children}: PokemonontextProps) => {
       name: data.name,
       types: data.types?.map((type: any) => type.type.name),
       image: data.sprites?.other['official-artwork']?.front_default,
-      height: data.height,
-      weight: data.weight,
+      height: data.height / 10,
+      weight: data.weight / 10,
+      hp: data.stats[0]?.base_stat,
+      attack: data.stats[1]?.base_stat,
+      defense: data.stats[2]?.base_stat,
+      specialAttack: data.stats[3]?.base_stat,
+      specialDefence: data.stats[4]?.base_stat,
+      speed: data.stats[5]?.base_stat,
     };
     return pokemon;
   }, []);

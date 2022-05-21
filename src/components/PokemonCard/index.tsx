@@ -16,7 +16,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({pokemon}) => {
     <S.Card
       onPress={() => navigation.navigate('PokemonDetail', {pokemon})}
       type={pokemon.types[0]}>
-      <S.PokemonID>{`#0${pokemon.id}`}</S.PokemonID>
+      <S.PokemonID>{`#${String(pokemon.id).padStart(3, '0')}`}</S.PokemonID>
       <S.Title>{pokemon.name}</S.Title>
       <S.InfoContainer>
         <S.TypesContainer>
