@@ -4,8 +4,8 @@ export const TypeIndicator = styled.View`
   background-color: rgba(255, 255, 255, 0.2);
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 13px;
-  padding-right: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 50px;
   margin-top: 8px;
   min-width: 70px;

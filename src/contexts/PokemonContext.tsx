@@ -3,7 +3,6 @@ import React, {
   useState,
   ReactNode,
   useContext,
-  useEffect,
   useCallback,
 } from 'react';
 import api from '../service';
@@ -11,6 +10,7 @@ import api from '../service';
 type PokemonContextType = {
   pokemons: Array<any>;
   loading: boolean;
+  getPokemons: () => void;
 };
 
 type PokemonontextProps = {
@@ -44,7 +44,7 @@ export const PokemonContext = createContext<PokemonContextType>(
 export const PokemonProvider = ({children}: PokemonontextProps) => {
   const [pokemons, setPokemons] = useState<Array<PokemonType>>([]);
   const [loading, setLoading] = useState(false);
-  const [offset] = useState(0);
+  const [offset, setOffset] = useState(0);
 
   const limit = 20;
 
@@ -67,12 +67,15 @@ export const PokemonProvider = ({children}: PokemonontextProps) => {
     return pokemon;
   }, []);
 
-  const getPokemonList = useCallback(async () => {
+  const getPokemonList = async () => {
     const response = await api.get(`pokemon?limit=${limit}&offset=${offset}`);
     return response;
-  }, [offset]);
+  };
 
-  const getPokemons = useCallback(async () => {
+  const getPokemons = async () => {
+    if (loading) {
+      return;
+    }
     setLoading(true);
     const pokemonList = await getPokemonList();
     const pokemonsResults: Array<PokemonType> = await Promise.all(
@@ -82,16 +85,13 @@ export const PokemonProvider = ({children}: PokemonontextProps) => {
         return pokemonResult;
       }),
     );
-    setPokemons(pokemonsResults);
+    setPokemons([...pokemons, ...pokemonsResults]);
+    setOffset(offset + limit);
     setLoading(false);
-  }, [getPokemonList, getPokemonDetail]);
-
-  useEffect(() => {
-    getPokemons();
-  }, [getPokemons]);
+  };
 
   return (
-    <PokemonContext.Provider value={{pokemons, loading}}>
+    <PokemonContext.Provider value={{pokemons, loading, getPokemons}}>
       {children}
     </PokemonContext.Provider>
   );
