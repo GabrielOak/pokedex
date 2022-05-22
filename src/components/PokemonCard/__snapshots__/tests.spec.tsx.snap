@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PokemonCard /> should render correcly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#e26768",
+      "borderRadius": 20,
+      "flexBasis": 0,
+      "flexGrow": 0.5,
+      "flexShrink": 1,
+      "height": 150,
+      "marginBottom": 8,
+      "marginLeft": 8,
+      "marginRight": 8,
+      "marginTop": 8,
+      "opacity": 1,
+      "paddingBottom": 13,
+      "paddingLeft": 13,
+      "paddingRight": 13,
+      "paddingTop": 13,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "alignSelf": "flex-end",
+          "color": "gray",
+          "fontSize": 16,
+        },
+      ]
+    }
+  >
+    #004
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "white",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "textTransform": "capitalize",
+        },
+      ]
+    }
+  >
+    charmander
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "flexBasis": 0,
+          "flexDirection": "row",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "space-between",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexBasis": 0,
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "flexShrink": 1,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgba(255, 255, 255, 0.2)",
+              "borderRadius": 50,
+              "marginRight": 5,
+              "marginTop": 8,
+              "minWidth": 70,
+              "paddingBottom": 5,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 5,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 12,
+                "fontWeight": "600",
+                "textTransform": "capitalize",
+              },
+            ]
+          }
+        >
+          fire
+        </Text>
+      </View>
+    </View>
+    <Image
+      source={
+        Object {
+          "uri": "",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "alignSelf": "flex-end",
+            "height": 85,
+            "width": 80,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
