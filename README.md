@@ -4,7 +4,7 @@ Tela Inicial            |  Tela de detalhe
 :-------------------------:|:-------------------------:
 ![home](./doc/home-screenshot.png)  |  ![detail](./doc/detail-screenshot.png)
 
-### :rocket: Como exutar:
+### :rocket: Como executar:
 
 Para executar o projeto é necessário ter o [Node.js](https://nodejs.org/en/) e o [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) instalados.
 
